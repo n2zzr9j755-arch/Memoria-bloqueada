@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#171827"><meta name="description" content="Juego de memoria de colores, instalable y sin conexión.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png"><link rel="stylesheet" href="styles.css">
+<title>Prisma — memoria de colores</title>
+</head>
+<body>
+<div class="app">
+<header class="topbar"><div class="brand-mark" aria-hidden="true">✦</div><div><p class="eyebrow">JUEGO DE MEMORIA</p><h1>Prisma</h1></div><button id="settingsBtn" class="icon-button" aria-label="Abrir ajustes" title="Ajustes">⚙</button></header>
+<main>
+<section class="status-row" aria-label="Progreso"><div class="stat"><span>RONDA</span><strong id="round">1</strong></div><div class="stat"><span>MEJOR MARCA</span><strong id="best">0</strong></div><div class="stat"><span>MEDALLAS</span><strong id="medals">1</strong></div></section>
+<section class="game-card">
+<div class="phase-line"><span id="phasePill" class="pill">PREPÁRATE</span><span id="timer" class="timer">10.0 s</span></div>
+<h2 id="headline">¿Listo para recordar?</h2><p id="instructions" class="subhead">Memoriza el orden. Después, reconstruye la secuencia.</p>
+<div id="sequence" class="sequence" aria-label="Secuencia para memorizar"></div>
+<div id="progressTrack" class="progress-track"><div id="progressBar"></div></div>
+<div id="answerArea" class="answer-area hidden"><p class="section-label">TU RESPUESTA <span id="answerCount">0 / 3</span></p><div id="answerSlots" class="answer-slots"></div><p class="helper">Toca un bloque de abajo para colocarlo. Toca una posición para quitarlo.</p><div id="bank" class="bank"></div><div class="action-row"><button id="hintBtn" class="secondary">✦ Pista <span id="hintCost">(1 medalla)</span></button><button id="checkBtn" class="primary" disabled>Comprobar</button></div></div>
+<div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
+<div class="action-row main-actions"><button id="startBtn" class="primary wide">Empezar ronda <span aria-hidden="true">→</span></button><button id="continueBtn" class="primary wide hidden">Siguiente ronda →</button><button id="retryBtn" class="secondary wide hidden">Reintentar ronda</button></div>
+</section>
+<p class="footer-note">Un momento de atención. Una secuencia a la vez.</p>
+</main>
+</div>
+<dialog id="settingsDialog"><form method="dialog" id="settingsForm"><div class="dialog-head"><div><p class="eyebrow">PERSONALIZA TU PARTIDA</p><h2>Ajustes</h2></div><button class="icon-button" value="cancel" aria-label="Cerrar">×</button></div>
+<label>Colores disponibles <output id="colorsOut">6</output><input id="colorsInput" type="range" min="4" max="8" value="6"></label>
+<label>Bloques iniciales <output id="blocksOut">3</output><input id="blocksInput" type="range" min="2" max="8" value="3"></label>
+<label>Tiempo para memorizar <output id="secondsOut">10 s</output><input id="secondsInput" type="range" min="5" max="20" step="1" value="10"></label>
+<div class="toggle-row"><label for="soundInput">Sonido</label><input id="soundInput" type="checkbox" checked></div><div class="toggle-row"><label for="vibrationInput">Vibración</label><input id="vibrationInput" type="checkbox" checked></div>
+<p class="settings-note">Los ajustes se guardan en este dispositivo. Máximo de secuencia: 12 bloques.</p><button class="primary wide" value="save" id="saveSettings">Guardar ajustes</button></form></dialog>
+<script src="app.js"></script>
+</body></html>
